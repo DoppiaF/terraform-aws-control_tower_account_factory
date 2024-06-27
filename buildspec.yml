@@ -24,7 +24,7 @@ phases:
     commands:
       - echo "Applying Terraform"
       #- terraform apply -input=false tfplan
-      terraform apply -input=false -auto-approve
+      - terraform apply -input=false -auto-approve
 artifacts:
   files:
     - '**/*'
