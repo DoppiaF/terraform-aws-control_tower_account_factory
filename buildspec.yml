@@ -19,15 +19,17 @@ phases:
       - echo "Initializing Terraform"
       - terraform init
       - echo "Planning Terraform"
-      #- terraform plan -out=tfplan
+      - terraform plan -out=tfplan
   post_build:
-    commands:
-      - echo "Applying Terraform"
-      #- terraform apply -input=false tfplan
-      - terraform apply -input=false -auto-approve
+  commands:
+    - echo "Applying Terraform"
+    - terraform apply -input=false tfplan
+    - echo "Printing Terraform plan for debugging purposes"
+    - terraform show tfplan
 artifacts:
   files:
     - '**/*'
+    - 'tfplan'
 cache:
   paths:
     - '.terraform/**/*'
