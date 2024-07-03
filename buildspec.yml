@@ -21,11 +21,11 @@ phases:
       - echo "Planning Terraform"
       - terraform plan -out=tfplan
   post_build:
-  commands:
-    - echo "Applying Terraform"
-    - terraform apply -input=false tfplan
-    - echo "Printing Terraform plan for debugging purposes"
-    - terraform show tfplan
+    commands:
+      - echo "Applying Terraform"
+      - terraform apply -input=false tfplan
+      - echo "Printing Terraform plan for debugging purposes"
+      - terraform show tfplan
 artifacts:
   files:
     - '**/*'
