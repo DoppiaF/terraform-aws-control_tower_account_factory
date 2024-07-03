@@ -19,6 +19,7 @@ phases:
       - echo "Initializing Terraform"
       - terraform init
       - echo "Planning Terraform"
+      - terraform validate
       - terraform plan -out=tfplan
   post_build:
     commands:
