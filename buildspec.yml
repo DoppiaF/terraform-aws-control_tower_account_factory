@@ -30,6 +30,7 @@ phases:
       - terraform apply -input=false tfplan
       - echo "Printing Terraform plan for debugging purposes"
       - terraform show tfplan
+      - aws s3 cp tfplan s3://codepipeline-eu-north-1-805195752839/tfplan
 artifacts:
   files:
     - '**/*'
