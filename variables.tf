@@ -2,47 +2,6 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 #########################################
-# Variabili di configurazione dell'account
-#########################################
-variable "log_archive_account_id" { 
- type = string 
- default = 905418464727 
- description = "🤖 AWS Log Archive Account Id" 
-} 
- 
-variable "audit_account_id" { 
- type = string 
- default = 851725568356 
- description = "🤖 AWS Audit Account Id" 
-} 
- 
-variable "aft_management_account_id" { 
- type = string 
- default = 590183691381 
- description = "🐙 AWS AFT Management Account Id" 
-} 
- 
-variable "ct_management_account_id" { 
- type = string 
- default = 992382556812 
- description = "💰 AWS Management Account Id" 
-} 
-
-### configurazione provider aws per regioni
-variable "ct_home_region" {
-  type        = string
-  description = "AWS Control Tower Home Region"
-  default     = "eu-north-1"
-}
-
-variable "tf_backend_secondary_region" {
-  type        = string
-  description = "Secondary region for Terraform backend"
-  default     = "eu-central-1"
-}
-
-
-#########################################
 # Control Tower Core Account Parameters
 #########################################
 variable "ct_management_account_id" {
