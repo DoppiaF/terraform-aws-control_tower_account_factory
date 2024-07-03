@@ -1,6 +1,32 @@
 # Copyright Amazon.com, Inc. or its affiliates. All rights reserved.
 # SPDX-License-Identifier: Apache-2.0
 #
+
+#########################################
+# Variabili di configurazione dei provider - modifica 5.0
+#########################################
+
+# Configurazione dei provider
+provider "aws" {
+  alias  = "aft_management"
+  region = var.ct_home_region
+  profile = "adminAccess"
+}
+
+provider "aws" {
+  alias  = "ct_management"
+  region = var.ct_home_region
+  profile = "adminAccess"
+}
+
+provider "aws" {
+  alias  = "tf_backend_secondary_region"
+  region = var.tf_backend_secondary_region
+  profile = "adminAccess"
+}
+
+#########################################
+
 module "packaging" {
   source = "./modules/aft-archives"
 }
