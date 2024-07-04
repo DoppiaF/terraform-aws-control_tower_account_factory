@@ -12,9 +12,6 @@ phases:
       - rm terraform_1.8.5_linux_amd64.zip
   pre_build:
     commands:
-      - echo "Esecuzione dello script per esportare le variabili d'ambiente..."
-      - chmod +x export_vars.sh
-      - ./export_vars.sh
       - echo "Configuring AWS credentials"
       - aws sts get-caller-identity
   build:
