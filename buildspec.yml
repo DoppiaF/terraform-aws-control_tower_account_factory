@@ -18,17 +18,18 @@ phases:
     commands:
       - echo "Initializing Terraform"
       - terraform init
-      - echo "Planning Terraform"
-      - terraform validate
-      - terraform plan -out=tfplan
+      #- echo "Planning Terraform"
+      #- terraform validate
+      #- terraform plan -out=tfplan
   post_build:
     commands:
-      - echo "Applying Terraform"
-      - terraform apply -input=false tfplan
-      - echo "Printing Terraform plan for debugging purposes"
-      - terraform show tfplan
-      - aws s3 cp tfplan s3://codepipeline-eu-north-1-805195752839/tfplan
-      - echo "Terraform applied successfully"
+      #- echo "Applying Terraform"
+      #- terraform apply -input=false tfplan
+      #- echo "Printing Terraform plan for debugging purposes"
+      #- terraform show tfplan
+      #- aws s3 cp tfplan s3://codepipeline-eu-north-1-805195752839/tfplan
+      #- echo "Terraform applied successfully"
+      - echo "Destroying Terraform"
       - terraform destroy -auto-approve
 artifacts:
   files:
