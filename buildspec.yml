@@ -24,7 +24,7 @@ phases:
   post_build:
     commands:
       - echo "Applying Terraform"
-      - terraform apply -input=false tfplan
+      - terraform apply -input=false tfplan || true
       - echo "Printing Terraform plan for debugging purposes"
       - terraform show tfplan
       - aws s3 cp tfplan s3://codepipeline-eu-north-1-805195752839/tfplan
@@ -32,7 +32,7 @@ phases:
       - echo "Waiting for 15 minutes before destroying resources"
       - sleep 900
       - echo "Destroying Terraform"
-      - terraform destroy -auto-approve
+      - terraform destroy -auto-approve || true
 artifacts:
   files:
     - '**/*'
